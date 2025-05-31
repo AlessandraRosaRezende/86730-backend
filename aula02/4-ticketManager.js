@@ -64,11 +64,13 @@ class TicketManager {
 const evento = new TicketManager();
 console.log(evento.getEvents()); // []
 evento.addEvent("Rock in Rio", "Lisboa", 10, 40, "10/10"); // id = 1 index: 0
-console.log(evento.getEvents());
+// console.log(evento.getEvents());
 evento.addUser(1, 1);
-console.log(evento.getEvents());
+// console.log(evento.getEvents());
+evento.addUser(1, 1);
+// console.log(evento.getEvents());
 evento.addUser(1, 2);
 console.log(evento.getEvents());
-evento.putEventoEnGira(1, "Porto", "11/11"); // id = 2 index: 1
-console.log(evento.getEvents());
+// evento.putEventoEnGira(1, "Porto", "11/11"); // id = 2 index: 1
+// console.log(evento.getEvents());
 evento.putEventoEnGira(4, "Braga", "12/12"); 

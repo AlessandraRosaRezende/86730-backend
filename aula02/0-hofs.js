@@ -1,8 +1,10 @@
 require('colorized-console');
 
+const array = new Array();
+
 const educadores = [
   {
-    nome: "Alë",
+    nome: "Alê",
     idade: 37,
     professor: true,
     tutor: false,
@@ -46,12 +48,16 @@ const professorFind = educadores.find(
   }
 );
 
-console.log(professorFind);
+// console.log(professorFind);
 
 // retorna um array com todos que satisfazem o filtro
-const professorFilter = educadores.filter(educador => educador.professor === true && educador.liguagem === "Go");
+const professorFilter = educadores.filter((educador) => { // callback
+  return educador.liguagem === "js" // precisa do return
+}); // case sensitive
+
+const professorFilter2 = educadores.filter(educador => educador.liguagem === "js"); // case sensitive
 
 console.log(professorFilter);
 
-// indicação de estudo extra
-// map, foreach, some, every, filter, find, sort, push, pop, shift, reduce, splice, findIndex, includes, slice, concat, join
+// // indicação de estudo extra
+// // map, foreach, some, every, filter, find, sort, push, pop, shift, **reduce**, splice, findIndex, includes, slice, concat, join

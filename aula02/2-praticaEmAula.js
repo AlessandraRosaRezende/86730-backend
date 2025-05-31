@@ -5,7 +5,7 @@ const obj = [ // 57
   { macas: 3, peras: 2, carne: 1, frango: 7, doces: 2 }, //15
   { macas: 1, cafes: 1, ovos: 6, frango: 1, paes: 4 }, //13
 ];
-/*
+
 const lista = [];
 
 obj.forEach((item) => {
@@ -13,16 +13,20 @@ obj.forEach((item) => {
 
   lista.push(...chaves);
 });
-//console.log(lista)
+// console.log(lista)
 
 //console.log(lista);
 var listaFiltrada = lista.filter((item, i) => {
-  //console.log(lista.indexOf(item), i, item)
+  // console.log(lista.indexOf(item), i, item)
   return lista.indexOf(item) === i;
 });
-//console.log(listaFiltrada);
-*/
-// 13   seg obj
+console.log(listaFiltrada);
+
+// reduce((acumulador, valorAtual) => {
+//   console.log(acumulador, valorAtual);
+//   return acumulador + valorAtual;
+// }, 0);
+
 const totalDeProdutosVendidos = obj.reduce((total, objeto) => {
   console.log(total, objeto);
   const valuesFormObject = Object.values(objeto);

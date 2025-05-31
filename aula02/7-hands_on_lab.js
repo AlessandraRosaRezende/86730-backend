@@ -43,7 +43,7 @@ const soma = (num1, num2) => {
   
   const divisao = (num1, num2) => {
       return new Promise((resolve, reject) => {
-        if (num1 < 0 || num2 < 0) {
+        if (num1 <= 0 || num2 <= 0) {
           reject("Fatores devem ser positivos");
         }
         const div = num1 / num2;
@@ -59,9 +59,12 @@ const soma = (num1, num2) => {
     try {
       const resultado = await soma(40, 50);
       console.log("soma", resultado);
-      const resultado1 = await multiplicacao(1, -50);
+      const resultado1 = await multiplicacao(1, 50);
       console.log("multiplicacao", resultado1);
-  
+      const resultado2 = await subtracao(100, 50);
+      console.log("subtracao", resultado2);
+      const resultado3 = await divisao(100, 0);
+      console.log("divisao", resultado3);  
     } catch (error) {
       console.error("catch => ", error);
     }
