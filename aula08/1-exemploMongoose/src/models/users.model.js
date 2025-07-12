@@ -9,7 +9,12 @@ const userSchema = new mongoose.Schema({
   last_name: String,
   email: {
     type: String,
+    require: true,
     unique: true // indica campo único, não pode ser repetido
+  },
+  password: {
+    type: String,
+    require: true // indica obrigatório
   }
 })
 

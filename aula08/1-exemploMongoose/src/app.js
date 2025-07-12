@@ -1,20 +1,20 @@
+require('dotenv').config(); // na primeira linha
 const express = require('express');
 const userRouter = require('./routes/user.router');
-const mongoose = require('mongoose');
+const dbConn = require('./db/connection');
 
 const app = express();
+app.use(express.json()); // para reconhecer o body
+app.use(express.urlencoded({ extended: true })); // para reconhecer caracteres especiais, tipo acento
 
-mongoose.connect('mongodb+srv://alessandra:coder@clustercoder.n6nab.mongodb.net/coderhouse?retryWrites=true&w=majority')
-.catch((error) => {
-  if(error) {
-    console.log('Não foi possível conectar ao banco de dados: ', error);
-    process.exit()
-  }
-})
+const PORT = process.env.PORT
+
+dbConn;
 
 app.use('/api/users', userRouter);
 
-app.listen(8080, () => {
-  console.log('Servidor rodando na porta 8080');
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
 })
-// npm i express mongoose
+
+// npm i express mongoose dotenv

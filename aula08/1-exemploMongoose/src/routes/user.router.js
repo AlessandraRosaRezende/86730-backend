@@ -1,15 +1,13 @@
 const { Router } = require('express')
-const userModel = require('../models/users.model');
+const usersController = require('../controllers/users.controller');
 
 const router = Router();
 
-router.get('/', async(req, res) => {
-  try {
-    let users = await userModel.find();
-    res.send({ result: "success", payload: users})
-  } catch(error) {
-    console.log("Cannot get users with mongoose: ", error);
-  }
-})
+router.get('/', usersController.getAllUsers);
+router.get('/:id', usersController.getUserById);
+router.post('/', usersController.createUser);
+router.put('/:id', usersController.updateUserAllFields);
+router.patch('/:id', usersController.updateUser);
+router.delete('/:id', usersController.deleteUser);
 
 module.exports = router
